@@ -1,4 +1,15 @@
-{ neovimUtils, vimPlugins, wrapNeovimUnstable, neovim-unwrapped }:
+{ lib
+, neovimUtils
+, vimPlugins
+, wrapNeovimUnstable
+, neovim-unwrapped
+, clang-tools
+, nixd
+, nodePackages
+, pyright
+, zig
+, zls
+}:
 let
   conf = neovimUtils.makeNeovimConfig {
     withPython3 = false;
@@ -20,6 +31,20 @@ let
     luaRcContent = ''
       dofile('${./setup.lua}')
     '';
+    customRC = builtins.readFile ./setup.vim;
   };
+  extraPackages = [
+    clang-tools
+    nixd
+    nodePackages.typescript-language-server
+    pyright
+    zig
+    zls
+  ];
+  extraMakeWrapperArgs = lib.optionalString (extraPackages != [ ])
+    ''--suffix PATH : "${lib.makeBinPath extraPackages}"'';
 in
-wrapNeovimUnstable neovim-unwrapped conf
+wrapNeovimUnstable neovim-unwrapped
+  (conf // {
+    wrapperArgs = (lib.escapeShellArgs conf.wrapperArgs) + " " + extraMakeWrapperArgs;
+  })

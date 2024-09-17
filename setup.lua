@@ -1,6 +1,10 @@
 -- lspconfig
 local lspconfig = require('lspconfig')
 lspconfig.clangd.setup {}
+lspconfig.elmls.setup {}
+lspconfig.nixd.setup {}
+lspconfig.pyright.setup {}
+lspconfig.tsserver.setup {}
 lspconfig.zls.setup {}
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -89,4 +93,7 @@ vim.keymap.set('n', '<C-f>', '<cmd>Neotree filesystem toggle<cr>', {silent = tru
 vim.keymap.set('n', '<C-b>', '<cmd>Neotree buffers toggle<cr>', {silent = true})
 
 -- bufferline
-require("bufferline").setup { }
+require("bufferline").setup {}
+
+-- orgmode
+require("orgmode").setup {}
