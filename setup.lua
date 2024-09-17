@@ -1,6 +1,7 @@
 -- lspconfig
 local lspconfig = require('lspconfig')
 lspconfig.clangd.setup {}
+lspconfig.zls.setup {}
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
