@@ -12,6 +12,7 @@
 }:
 let
   conf = neovimUtils.makeNeovimConfig {
+    vimAlias = true;
     withPython3 = false;
     withRuby = false;
     withNodeJs = false;
