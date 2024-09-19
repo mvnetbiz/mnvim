@@ -88,9 +88,10 @@ require("neo-tree").setup {
     enabled = true
   }
 }
-vim.keymap.set('n', '<C-n>', '<cmd>Neotree toggle<cr>', {silent = true})
-vim.keymap.set('n', '<C-f>', '<cmd>Neotree filesystem toggle<cr>', {silent = true})
-vim.keymap.set('n', '<C-b>', '<cmd>Neotree buffers toggle<cr>', {silent = true})
+vim.keymap.set('n', '<C-b>', '<cmd>Neotree focus buffers <cr>', {silent = true})
+vim.keymap.set('n', '<C-f>', '<cmd>Neotree focus filesystem <cr>', {silent = true})
+vim.keymap.set('n', '<C-n>', '<cmd>Neotree focus filesystem <cr>', {silent = true})
+vim.keymap.set('n', '<C-s>', '<cmd>Neotree focus git_status <cr>', {silent = true})
 
 -- bufferline
 require("bufferline").setup {}
