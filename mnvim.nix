@@ -3,10 +3,12 @@
 , vimPlugins
 , wrapNeovimUnstable
 , neovim-unwrapped
+, bash-language-server
 , clang-tools
 , nixd
 , nodePackages
 , pyright
+, shellcheck
 , zig
 , zls
 }:
@@ -35,10 +37,12 @@ let
     customRC = builtins.readFile ./setup.vim;
   };
   extraPackages = [
+    bash-language-server
     clang-tools
     nixd
     nodePackages.typescript-language-server
     pyright
+    shellcheck
     zig
     zls
   ];

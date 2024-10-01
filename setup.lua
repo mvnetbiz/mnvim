@@ -1,5 +1,6 @@
 -- lspconfig
 local lspconfig = require('lspconfig')
+lspconfig.bashls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.elmls.setup {}
 lspconfig.nixd.setup {}
