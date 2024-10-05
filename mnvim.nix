@@ -5,6 +5,7 @@
 , neovim-unwrapped
 , bash-language-server
 , clang-tools
+, gopls
 , nixd
 , nodePackages
 , pyright
@@ -39,6 +40,7 @@ let
   extraPackages = [
     bash-language-server
     clang-tools
+    gopls
     nixd
     nodePackages.typescript-language-server
     pyright

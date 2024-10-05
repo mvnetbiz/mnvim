@@ -3,6 +3,7 @@ local lspconfig = require('lspconfig')
 lspconfig.bashls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.elmls.setup {}
+lspconfig.gopls.setup {}
 lspconfig.nixd.setup {}
 lspconfig.pyright.setup {}
 lspconfig.tsserver.setup {}
